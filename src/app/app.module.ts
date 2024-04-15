@@ -9,8 +9,8 @@ import { FirstpageComponent } from './firstpage/firstpage.component';
 import { ButtonComponent } from './lib/button/button.component';
 import { ModalComponent } from './lib/modal/modal.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 import { SortableModule } from 'ngx-bootstrap/sortable';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
