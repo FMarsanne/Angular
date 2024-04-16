@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TasksService } from "../tasks/tasks.service";
+import { ITaskObject, TaskStatus } from '../myTypes.d';
 
 @Component({
   selector: 'app-listtasks',
@@ -9,13 +10,19 @@ import { TasksService } from "../tasks/tasks.service";
 })
 export class ListtasksComponent implements OnInit {
 
-  taskName : string[] = [];
+  tasks: ITaskObject[] = [];
+  openTasks: ITaskObject[] = [];
+  inprogressTasks: ITaskObject[] = [];
+  doneTasks: ITaskObject[] = [];
 
   constructor(
     private tasksService : TasksService) { }
 
   ngOnInit(): void {
-    this.taskName = this.tasksService.getTitles();
+    this.tasks = this.tasksService.getTasks();
+    this.openTasks = this.tasks.filter(task => task.status === 'OPEN');
+    this.inprogressTasks = this.tasks.filter(task => task.status === 'IN_PROGRESS');
+    this.doneTasks = this.tasks.filter(task => task.status === 'DONE');
   }
 
 }

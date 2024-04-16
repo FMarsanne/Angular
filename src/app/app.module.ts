@@ -5,7 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
-import { FirstpageComponent } from './firstpage/firstpage.component';
 import { AddtaskComponent } from './tasks/addtask.component';
 import { ButtonComponent } from './lib/button/button.component';
 import { ModalComponent } from './lib/modal/modal.component';
@@ -20,7 +19,6 @@ import { ListtasksComponent } from './listtasks/listtasks.component';
     AppComponent,
     AboutComponent,
     HomeComponent,
-    FirstpageComponent,
     AddtaskComponent,
     ButtonComponent,
     ModalComponent,

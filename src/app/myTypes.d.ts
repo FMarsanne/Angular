@@ -6,17 +6,21 @@ export type IItemObject = {
   }
 
   export const enum TaskStatus {
-    TODO,
-    DOING,
-    DONE
+    OPEN = 'OPEN',
+    IN_PROGRESS = 'IN_PROGRESS',
+    DONE = 'DONE',
   }
-// 
+
+  export type TaskForm = {
+    title: string,
+    description: string | null,
+    status: TaskStatus,
+  }
+
   export type ITaskObject = {
     id: number;
-    taskName: string;
-    startDate : Date;
-    endDate : Date;
-    taskPriority : number;
+    title: string;
+    description : string | null;
     status : TaskStatus;
   }
 
