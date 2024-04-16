@@ -1,0 +1,63 @@
+<h1>New Task</h1>
+<form class="row g-3 needs-validation" novalidate (ngSubmit)="onSubmit()">  
+  <div class="col-xs-12 col-12 col-md-6 form-group mb-3">
+    <label for="name" class="form-label">Task name</label>
+    <input class="form-control" 
+           type="text" 
+           placeholder="Task name" 
+           aria-label="Nom de la tâche" 
+           id="name" 
+           required 
+           [(ngModel)]="taskName" 
+           name="taskName">
+    <div class="invalid-feedback" *ngIf="submitted && !taskName">
+      Please provide a task name.
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <label for="startdate" class="form-label">Start Date</label>
+      <input type="date"
+             class="form-control"
+             id="startdate" 
+             required
+             [(ngModel)]="startDate"
+             name="startDate">
+      <div class="invalid-feedback" *ngIf="submitted && !startDate">
+        Please provide a start date.
+      </div>
+    </div>    
+    <div class="col-xs-12 col-12 col-md-4 form-group mb-3">
+      <label for="enddate" class="form-label">End Date</label>
+      <input type="date"
+             class="form-control"
+             id="enddate" 
+             required
+             [(ngModel)]="endDate"
+             name="endDate">
+      <div class="invalid-feedback" *ngIf="submitted && !endDate">
+        Please provide an end date.
+      </div>
+    </div>
+  </div>
+  <div class="col-xs-12 col-12 col-md-6 form-group mb-3">
+    <label for="idpriorite" class="form-label">Task Priority</label>
+    <select class="form-select" 
+            aria-label="Task Priority" 
+            id="idpriorite"
+            required
+            [(ngModel)]="taskPriority"
+            name="taskPriority">
+      <option [ngValue]="null" disabled selected>Choose Priority</option>
+      <option [ngValue]="1">High</option>
+      <option [ngValue]="2">Medium</option>
+      <option [ngValue]="3">Low</option>
+    </select>
+    <div class="invalid-feedback" *ngIf="submitted && !taskPriority">
+      Please select a task priority.
+    </div>
+  </div>
+  <div class="col-12">
+    <button class="btn btn-primary" type="submit">Create</button>
+  </div>
+</form>
