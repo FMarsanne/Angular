@@ -13,6 +13,9 @@ import { SortableModule } from 'ngx-bootstrap/sortable';
 import { FormsModule } from '@angular/forms';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ListtasksComponent } from './listtasks/listtasks.component';
+import { HttpClientModule } from '@angular/common/http';
+import { MyHttpService } from './MyHttpService';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -29,10 +32,15 @@ import { ListtasksComponent } from './listtasks/listtasks.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    HttpClientModule,
     SortableModule.forRoot(),
     BsDatepickerModule.forRoot()
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: MyHttpService,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
