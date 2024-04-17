@@ -25,11 +25,14 @@ export class TasksService {
 
   getTasks() : Observable<ITaskObject[]> {
     console.log("+++++++++++");
-    return this.http.get<ITaskObject[]>("/tasks", {
+  // Version avec l'authentif dans l'appel http
+  /*  return this.http.get<ITaskObject[]>("/tasks", {
       headers: {
         Authorization: `Bearer ${this.auth.accessToken}`
       }
-    }).pipe(tap(res => console.log(res)));
+    }).pipe(tap(res => console.log(res))); */
+
+    return this.http.get<ITaskObject[]>("/tasks").pipe(tap(res => console.log(res))); 
   } 
 
   getTaskById(id: number): ITaskObject | undefined {

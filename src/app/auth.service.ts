@@ -16,7 +16,10 @@ export class AuthService {
 
   constructor(
     private http: HttpClient
-  ) { }
+  ) { 
+
+    this.loginFromLocalStorage();
+  }
 
   async login(email: string, password: string) : Promise<IUserObject | string> {
     try {
@@ -35,6 +38,10 @@ export class AuthService {
       this.accessToken = res.accessToken;
       this.user = user;  // on conserve le user pour une utilisation ultérieure
 
+      localStorage.setItem("accessToken", this.accessToken);
+  //    localStorage.getItem("user");
+  //    localStorage.removeItem;
+
       console.log(res);
 
       return user;  // Retourne l'utilisateur si tout se passe bien
@@ -48,5 +55,22 @@ export class AuthService {
         return "An unknown error occurred"; // Retourne une erreur inconnue
       }
     }
+  }
+
+  async loginFromLocalStorage() {
+    
+    const accessToken = localStorage.getItem("accessToken");
+    console.log(accessToken);
+    if (!accessToken) return;
+
+    this.accessToken = accessToken;
+
+    
+    const payload = accessToken.split(".")[1]; // découpe le token reçu et prend la partie du milieu
+    const decoded = atob(payload); // décode le payload (librairie Base64)
+    const user = JSON.parse(decoded) as IUserObject; 
+    this.user = user;  // on conserve le user pour une utilisation ultérieure
+    console.log(user);
+
   }
 }
