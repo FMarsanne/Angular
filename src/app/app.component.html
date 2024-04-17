@@ -1,22 +1,22 @@
-<h1>
-    My Title
-</h1>
+<h1>My 1st Angular App</h1>
 <br>
-<a routerLink="/register">Register</a>
-<br>
-<a routerLink="/login">Login</a>
-<br>
-<a routerLink="/about">À propos</a>
-<br>
-<a routerLink="/home">Home</a>
-<br>
-<a routerLink="/addtask">Add a new Task</a>
-<br>
-<a routerLink="/listtasks">List Tasks</a>
+<div class="links-container"> <!-- Div pour aligner les liens -->
+  <a routerLink="/register">Register</a>
+  <br>
+  <a routerLink="/login">Login</a>
+  <br>
+  <a (click)="logout()" class="btn btn-link">Logout</a>
+  <br>
+  <a routerLink="/about">À propos</a>
+  <br>
+  <a routerLink="/home">Home</a>
+  <br>
+  <a routerLink="/addtask">Add a new Task</a>
+  <br>
+  <a routerLink="/listtasks">List Tasks</a>
+</div>
 <div class="app">
-<div class="app-header"></div>
+  <div class="app-header"></div>
 </div>
 <router-outlet></router-outlet>
-
-
 

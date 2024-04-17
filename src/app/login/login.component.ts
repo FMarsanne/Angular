@@ -40,7 +40,10 @@ export class LoginComponent implements OnInit {
       }
   }
 
-  logout() {
+  async logout() {
+    
+  //    localStorage.getItem("user");
+  //    localStorage.removeItem;
 
   }
 }

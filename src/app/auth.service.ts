@@ -14,10 +14,7 @@ export class AuthService {
   accessToken : string | null = null;
   user: IUserObject | null = null;
 
-  constructor(
-    private http: HttpClient
-  ) { 
-
+  constructor(private http: HttpClient) { 
     this.loginFromLocalStorage();
   }
 
@@ -71,6 +68,14 @@ export class AuthService {
     const user = JSON.parse(decoded) as IUserObject; 
     this.user = user;  // on conserve le user pour une utilisation ultérieure
     console.log(user);
+
+  }
+
+  logout() : void {
+    
+    localStorage.removeItem("accessToken");
+    this.accessToken = null;
+    this.user = null;
 
   }
 }

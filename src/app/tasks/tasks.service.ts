@@ -32,6 +32,7 @@ export class TasksService {
       }
     }).pipe(tap(res => console.log(res))); */
 
+  // Version avec l'auth intégrée dans MyHttpService.ts
     return this.http.get<ITaskObject[]>("/tasks").pipe(tap(res => console.log(res))); 
   } 
 
