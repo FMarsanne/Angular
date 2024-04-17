@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { IUserObject } from './myTypes';
+import { Router } from '@angular/router';
 
 type LoginResponse = {
   accessToken : string
@@ -13,8 +14,11 @@ export class AuthService {
 
   accessToken : string | null = null;
   user: IUserObject | null = null;
+  
 
-  constructor(private http: HttpClient) { 
+  constructor(
+    private http: HttpClient,
+    private router: Router ) { 
     this.loginFromLocalStorage();
   }
 
@@ -76,6 +80,7 @@ export class AuthService {
     localStorage.removeItem("accessToken");
     this.accessToken = null;
     this.user = null;
+    this.router.navigate(['/login']);
 
   }
 }

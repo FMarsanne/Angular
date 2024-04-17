@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from './auth.guard';
 
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
@@ -16,7 +17,7 @@ const routes: Routes = [
   {path: "about", component : AboutComponent},
   {path: "about/:id", component : AboutComponent},
   {path: "addtask", component : AddtaskComponent},
-  {path: "listtasks", component : ListtasksComponent}
+  {path: "listtasks", component : ListtasksComponent, canActivate:[AuthGuard]}
 ];
 
 @NgModule({
