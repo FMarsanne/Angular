@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { ITaskObject, TaskForm } from '../myTypes.d'; 
 import { HttpClient } from '@angular/common/http';
+import { Observable, tap, catchError } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -13,9 +14,15 @@ export class TasksService {
   constructor( private http : HttpClient ) { 
      }
 
-  getTasks() : ITaskObject[] {
+  // Ancienne version avant http
+  /*getTasks() : ITaskObject[] {
     return this.tasks;
-  }
+  } */
+
+  getTasks() : Observable<ITaskObject[]> {
+    console.log("+++++++++++");
+    return this.http.get<ITaskObject[]>("/tasks").pipe(tap(res => console.log(res)));
+  } 
 
   getTaskById(id: number): ITaskObject | undefined {
     return this.tasks.find(task => task.id === id);

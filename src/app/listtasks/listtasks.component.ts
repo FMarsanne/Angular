@@ -19,10 +19,17 @@ export class ListtasksComponent implements OnInit {
     private tasksService : TasksService) { }
 
   ngOnInit(): void {
-    this.tasks = this.tasksService.getTasks();
-    this.openTasks = this.tasks.filter(task => task.status === 'OPEN');
-    this.inprogressTasks = this.tasks.filter(task => task.status === 'IN_PROGRESS');
-    this.doneTasks = this.tasks.filter(task => task.status === 'DONE');
+    // Ancienne version avant http 
+    //this.tasks = this.tasksService.getTasks();
+    this.tasksService.getTasks().subscribe(res => {
+      this.tasks = res;
+      console.log("------------");
+      console.log(this.tasks);
+
+      this.openTasks = this.tasks.filter(task => task.status === 'OPEN');
+      this.inprogressTasks = this.tasks.filter(task => task.status === 'IN_PROGRESS');
+      this.doneTasks = this.tasks.filter(task => task.status === 'DONE');
+    });
   }
 
 }

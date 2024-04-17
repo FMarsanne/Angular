@@ -15,7 +15,9 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ListtasksComponent } from './listtasks/listtasks.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MyHttpService } from './MyHttpService';
-import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http'
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
+import { RegisterComponent } from './register/register.component';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http'
     AddtaskComponent,
     ButtonComponent,
     ModalComponent,
-    ListtasksComponent
+    ListtasksComponent,
+    RegisterComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,

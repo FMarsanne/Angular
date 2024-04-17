@@ -1,0 +1,11 @@
+<div class="col-lg-4 mx-auto">
+    <form #f="ngForm" (submit)="onSubmit()">
+    <div class="mb-3">
+        <label for="email" class="form-label">Email:</label>
+        <input required [(ngModel)]="email" type="text" class="form-control" name="email" id="email" placeholder="Email..."></div>
+    <div class="mt-2">
+        <button routerLink="/home" type="button" class="btn btn-secondary mr-2">Annuler</button>
+        <button type="submit" class="btn btn-primary">Envoyer</button>
+      </div>
+      </form>
+</div>

@@ -25,7 +25,6 @@ export type IItemObject = {
   }
 
   export type IUserObject = {
-    id: number;
-    userName: string;
-    userPwd: string;
+    email: string;
+    password: string;
   }
