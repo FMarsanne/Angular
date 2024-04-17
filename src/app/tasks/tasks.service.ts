@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { ITaskObject, TaskForm } from '../myTypes.d'; 
 import { HttpClient } from '@angular/common/http';
 import { Observable, tap, catchError } from 'rxjs';
+import { AuthService } from '../auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,10 @@ export class TasksService {
 
   tasks : ITaskObject[] = [];
 
-  constructor( private http : HttpClient ) { 
+  constructor( 
+    private http : HttpClient,
+    private auth : AuthService
+   ) { 
      }
 
   // Ancienne version avant http
@@ -21,7 +25,11 @@ export class TasksService {
 
   getTasks() : Observable<ITaskObject[]> {
     console.log("+++++++++++");
-    return this.http.get<ITaskObject[]>("/tasks").pipe(tap(res => console.log(res)));
+    return this.http.get<ITaskObject[]>("/tasks", {
+      headers: {
+        Authorization: `Bearer ${this.auth.accessToken}`
+      }
+    }).pipe(tap(res => console.log(res)));
   } 
 
   getTaskById(id: number): ITaskObject | undefined {

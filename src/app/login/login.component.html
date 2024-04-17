@@ -1,10 +1,11 @@
 <div class="col-lg-4 mx-auto">
-    <form #f="ngForm" (submit)="onSubmit()">
+    <form #f="ngForm" (submit)="login()">
     <div class="mb-3">
         <label for="email" class="form-label">Nom:</label>
         <input required [(ngModel)]="email" type="text" class="form-control" name="email" id="email" placeholder="Email...">
         <label for="password" class="form-label">Mot de passe:</label>
         <input required [(ngModel)]="password" type="password" class="form-control" name="password" id="password" placeholder="Mot de passe..." autocomplete="off">
+        <p *ngIf="message" class="text-center">{{message}}</p>
     </div>
     <div class="mt-2">
         <button routerLink="/home" type="button" class="btn btn-secondary mr-2">Annuler</button>

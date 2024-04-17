@@ -19,12 +19,11 @@ export type IItemObject = {
 
   export type ITaskObject = {
     id: number;
-    title: string;
-    description : string | null;
-    status : TaskStatus;
-  }
+  } & TaskForm;
 
   export type IUserObject = {
-    email: string;
-    password: string;
+    sub: string, // Id user
+    email: string; 
+    exp: number, // expiration date
+    iat: number  // iassued at (creation date)
   }
