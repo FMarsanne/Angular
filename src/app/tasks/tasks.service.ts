@@ -21,10 +21,12 @@ export class TasksService {
   // Ancienne version avant http
   /*getTasks() : ITaskObject[] {
     return this.tasks;
-  } */
+  }
+  */
 
+  // Version avec l'auth
   getTasks() : Observable<ITaskObject[]> {
-    console.log("+++++++++++");
+    console.log("+++++++++++"); 
   // Version avec l'authentif dans l'appel http
   /*  return this.http.get<ITaskObject[]>("/tasks", {
       headers: {
@@ -33,8 +35,9 @@ export class TasksService {
     }).pipe(tap(res => console.log(res))); */
 
   // Version avec l'auth intégrée dans MyHttpService.ts
-    return this.http.get<ITaskObject[]>("/tasks").pipe(tap(res => console.log(res))); 
+  return this.http.get<ITaskObject[]>("/tasks").pipe(tap(res => console.log(res))); 
   } 
+  
 
   getTaskById(id: number): ITaskObject | undefined {
     return this.tasks.find(task => task.id === id);

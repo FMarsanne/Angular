@@ -17,12 +17,16 @@ export class AuthGuard implements CanActivate {
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean
   {
+    // Activ. authent
     if (! this.auth.user) {
       window.alert("You are not connected");
       this.router.navigate(['/login']);
       return false;
     }
     return true;
+    
+   // Forcer à true
+   // return true;
   }
   
 }

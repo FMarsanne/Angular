@@ -21,15 +21,18 @@ export class ListtasksComponent implements OnInit {
   ngOnInit(): void {
     // Ancienne version avant http 
     //this.tasks = this.tasksService.getTasks();
+
+    // Version avec l'authent
     this.tasksService.getTasks().subscribe(res => {
       this.tasks = res;
       console.log("------------");
       console.log(this.tasks);
-
-      this.openTasks = this.tasks.filter(task => task.status === 'OPEN');
-      this.inprogressTasks = this.tasks.filter(task => task.status === 'IN_PROGRESS');
-      this.doneTasks = this.tasks.filter(task => task.status === 'DONE');
-    });
+    
+      //this.openTasks = this.tasks.filter(task => task.statusEnum === 'TODO');
+      this.openTasks = this.tasks.filter(task => task.statusEnum === 'OPEN');
+      this.inprogressTasks = this.tasks.filter(task => task.statusEnum === 'IN_PROGRESS');
+      this.doneTasks = this.tasks.filter(task => task.statusEnum === 'DONE');
+     });
   }
 
 }

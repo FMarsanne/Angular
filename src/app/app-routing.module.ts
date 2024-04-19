@@ -16,7 +16,7 @@ const routes: Routes = [
   {path: "register", component : RegisterComponent},
   {path: "about", component : AboutComponent},
   {path: "about/:id", component : AboutComponent},
-  {path: "addtask", component : AddtaskComponent},
+  {path: "tasks", component : AddtaskComponent},
   {path: "listtasks", component : ListtasksComponent, canActivate:[AuthGuard]}
 ];
 

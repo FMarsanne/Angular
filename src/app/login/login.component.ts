@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
         this.message = res;
       } else {
         this.message = `Bienvenue ${res.email} !`;
-        this.router.navigate(['/listtasks']);   // Navigue directemnt sur la liste des Tasks en conservant le Token
+        this.router.navigate(['/listtasks']);   // Navigue directement sur la liste des Tasks en conservant le Token
         this.router.navigate(['/home']); 
       }
   }

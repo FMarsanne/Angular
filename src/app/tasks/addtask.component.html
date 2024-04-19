@@ -10,9 +10,9 @@
         <textarea [(ngModel)]="description" class="form-control" id="description" name="description" rows="3"></textarea>
       </div>
       <div>
-        <label for="status" class="form-label">Statut:</label>
-        <select [(ngModel)]="status" class="form-select" id="status" name="status">
-          <option value="OPEN">A faire</option>
+        <label for="statusEnum" class="form-label">Statut:</label>
+        <select [(ngModel)]="statusEnum" class="form-select" id="statusEnum" name="statusEnum">
+          <option value="TODO">A faire</option>
           <option value="IN_PROGRESS">En cours</option>
           <option value="DONE">Fini</option>
         </select>

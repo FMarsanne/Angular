@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ITaskObject, IUserObject, TaskStatus,TaskForm } from '../myTypes.d';
+import { ITaskObject, IUserObject, TaskStatus,TaskForm} from '../myTypes.d';
 import { Router } from '@angular/router'
 import { TasksService } from './tasks.service';
 
@@ -13,7 +13,9 @@ export class AddtaskComponent implements OnInit {
 
   title: string = "";
   description: string | null = "";
-  status: TaskStatus = TaskStatus.OPEN;
+  startdate: Date | null = null;
+  enddate: Date | null = null;
+  statusEnum: TaskStatus = TaskStatus.OPEN;
 
   
   constructor(
@@ -25,11 +27,13 @@ export class AddtaskComponent implements OnInit {
   }
   onSubmit(): void {
 
-    console.log(this.title, this.description, this.status);
+    console.log(this.title, this.description, this.statusEnum);
     const task: TaskForm = {
       title: this.title, 
+      startdate: this.startdate,
+      enddate: this.enddate,
       description: this.description,
-      status: this.status
+      statusEnum: this.statusEnum
     };
 
     this.tasksService.addTask(task);

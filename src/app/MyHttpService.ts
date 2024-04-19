@@ -19,8 +19,12 @@ export class MyHttpService implements HttpInterceptor {
             : ""
         }
       })
-      
+
+    // Version avec DBJson
     const apiReq = authReq.clone({ url: `http://localhost:3001${req.url}` });
+    
+    // Version avec BackEnd
+    // const apiReq = authReq.clone({ url: `http://localhost:8080${req.url}` });
     return next.handle(apiReq);
   }
 }
